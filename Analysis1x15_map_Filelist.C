@@ -34,7 +34,7 @@ void Analysis1x15_map_Filelist()
   //dir = fi.fIniDir;
 
   //ifstream fl(fi.fFilename);
-  ifstream fl("filelist");
+  ifstream fl("filelist");		//fl read from filelist
   TFile *rfile = new TFile("filelist.root");
 
   
@@ -192,6 +192,12 @@ int ReadFile(const char *sigfile, TH1F *fHit, TH1F *fDecode, TH1F *fDecode2, TH1
         //else            ftmp->SetBinContent(i, 0);
     }
 
+	// Code inserted by Beibei
+	ofstream logfile("log.txt");
+	for (int i = 0; i < nhit; i++){
+		logfile << hitted[i] <<' ';
+	}
+	logfile << endl;
     if(nhit<2 || nhit>=4) continue;
     //------------10 hits---------------
     //if(nhit<2 || nhit>=10) continue;
