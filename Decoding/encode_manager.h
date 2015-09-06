@@ -22,8 +22,8 @@ class cod_gen
 {
 public:
 
-	static int encode(int strip);	//encode method, input id of strip, return channel id
-	static fire_strip decode(chennel_inf hitted);	//decode method, input hitted chennel id, return decoded information
+	virtual int encode(int strip);	//encode method, input id of strip, return channel id
+	virtual fire_strip decode(chennel_inf hitted);	//decode method, input hitted chennel id, return decoded information
 
 private:
 

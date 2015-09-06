@@ -22,9 +22,13 @@ void test1(){
 class basic
 {
 public:
-	void method(){
+	
+	virtual void method() {
 		cout << "basic";
-	}
+	};
+
+private:
+	static int static_int;
 };
 
 class advanced :public basic
@@ -35,14 +39,14 @@ public:
 	}
 };
 
-void test2(basic tmp){
-	tmp.method();
+void test2(basic *tmp){
+	tmp->method();
 }
 
 void main(){
 	basic a;
 	advanced b;
-	test2(b);
+	test2(&b);
 	getchar();
 }
 
