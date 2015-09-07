@@ -1,4 +1,5 @@
 #include "encode_manager.h"
+#include "code_method.h"
 #include <iostream>
 #include <fstream>
 
@@ -7,11 +8,13 @@ using namespace std;
 void test1(){
 	ofstream logfile("test_log.txt");
 	int chennel;
-	for (int i = 1; i <= 144; i++){
-		chennel = insert_cod::encode(i);
+	
+	insert_cod ins;
+	for (int i = 1; i <= 144; i++) {
+		chennel = ins.encode(i);
 		cout << chennel << '\t';
-		logfile << chennel<< '\t';
-		if (i % 10 == 0){
+		logfile << chennel << '\t';
+		if (i % 10 == 0) {
 			logfile << endl;
 		}
 	}
@@ -28,7 +31,6 @@ public:
 	};
 
 private:
-	static int static_int;
 };
 
 class advanced :public basic
@@ -44,9 +46,17 @@ void test2(basic *tmp){
 }
 
 void main(){
+
+	insert_cod cod;
+	test_mod display_test(&cod);
+	display_test.display();
+	/*
 	basic a;
 	advanced b;
-	test2(&b);
+	basic *ap;
+	ap = &b;
+	test2(ap);
+	*/
 	getchar();
 }
 
